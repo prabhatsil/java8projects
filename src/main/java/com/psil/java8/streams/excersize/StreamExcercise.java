@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
-public class StreamExcersize {
+public class StreamExcercise {
     public static void main(String[] args) {
 
         Trader raoul = new Trader("Raoul", "Cambridge");
