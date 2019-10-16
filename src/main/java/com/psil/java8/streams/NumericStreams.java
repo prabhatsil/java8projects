@@ -3,6 +3,7 @@ package com.psil.java8.streams;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.Arrays;
+import java.util.function.IntSupplier;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
@@ -15,6 +16,8 @@ public class NumericStreams {
         fibonacciUsingStream(10);
         generatePythagorianTuple();
         uniqueWordsinFile();
+        fibonacciTupleUsingStreamIterate();
+        streamGenerate();
 
     }
 
@@ -36,6 +39,7 @@ public class NumericStreams {
         pythagorianTuple.limit(5).forEach( t -> System.out.println((int)t[0]+","+(int)t[1]+","+(int)t[2]));
 
     }
+
     public static void uniqueWordsinFile(){
         try {
             long count = Files.lines(Paths.get("/Users/psil/Documents/docs/intellj-workspace/java8projects/src/main/java/com/psil/java8/streams/test.txt"))
@@ -46,5 +50,30 @@ public class NumericStreams {
         }catch(Exception ex){
             ex.printStackTrace();
         }
+    }
+
+    public static void fibonacciTupleUsingStreamIterate(){
+        System.out.println("-------- fibonacciTupleUsingStreamIterate --------");
+        Stream.iterate( new int[]{0, 1} , t -> new int[]{ t[1], t[0] + t[1]})
+                .limit(10).forEach(t -> System.out.println("("+t[0]+", " +t[1]+")"));
+    }
+
+    public static void streamGenerate(){
+
+        System.out.println("--------- generate stream of factorial numbers ----------");
+        IntStream.generate(new IntSupplier() {
+            int i =1;
+            @Override
+            public int getAsInt() {
+                int s = 1;
+                for( int k =1;k<=i;k++){
+                    s = s * k;
+                }
+                i = i + 1;
+                return  s;
+            }
+        }).limit(5).forEach( i -> System.out.println(i));
+
+
     }
 }
