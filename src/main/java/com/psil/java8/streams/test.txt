@@ -1,0 +1,2 @@
+Java8 Streams are powerful programming construct
+Streams are data processing framework
