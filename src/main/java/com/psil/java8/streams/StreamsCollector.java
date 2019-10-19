@@ -131,6 +131,8 @@ public class StreamsCollector {
         String regx = "^[a-z]+$";
         Pattern p = Pattern.compile(regx);
         return  str != null && str.length()<=100 && p.matcher(str).matches();
+
+
     }
 
 }
