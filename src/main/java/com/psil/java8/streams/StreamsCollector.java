@@ -92,8 +92,8 @@ public class StreamsCollector {
      */
     public static String largestCommonSubString(String str1, String str2){
 
-       return IntStream.rangeClosed(0, str1.length()).boxed().
-                flatMap( i -> IntStream.rangeClosed( i, str1.length())
+       return IntStream.rangeClosed(0, str1.length()).boxed()
+                .flatMap( i -> IntStream.rangeClosed( i, str1.length())
                         .mapToObj( j -> str1.substring(i,j)))
                         .filter( s -> str2.contains(s))
                         .max(Comparator.comparingInt( s ->s.length())).get();
