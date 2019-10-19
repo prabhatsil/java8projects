@@ -132,7 +132,6 @@ public class StreamsCollector {
         Pattern p = Pattern.compile(regx);
         return  str != null && str.length()<=100 && p.matcher(str).matches();
 
-
     }
 
 }
