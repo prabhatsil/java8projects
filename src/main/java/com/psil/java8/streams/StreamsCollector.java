@@ -40,9 +40,6 @@ public class StreamsCollector {
     }
 
     public static Optional<Dish> findMaxCalorieDish(List<Dish> menu){
-
-
-
         Comparator<Dish> dishCaloriesComparator = Comparator.comparingInt(d -> d.getCalories());
 
         Optional<Dish>  maxCalorieDish =  menu.stream().collect(Collectors.maxBy(dishCaloriesComparator));
