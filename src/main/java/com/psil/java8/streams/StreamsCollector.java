@@ -36,9 +36,12 @@ public class StreamsCollector {
         String a = "aaa";
         String b ="aaa";
         System.out.println( "findLUSlength = "+ findLUSlength(a, b));
+
     }
 
     public static Optional<Dish> findMaxCalorieDish(List<Dish> menu){
+
+
 
         Comparator<Dish> dishCaloriesComparator = Comparator.comparingInt(d -> d.getCalories());
 
