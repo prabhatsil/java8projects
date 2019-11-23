@@ -2,10 +2,12 @@
 // Declarative //
 pipeline {
   agent any
+
     stages {
         stage('init'){
             steps {
-                def mvnHome = tool name: 'Maven3', type: 'maven'
+                mvnHome = tool name: 'Maven3', type: 'maven'
+                echo "$mvnHome"
             }
         }
         stage('build') {
