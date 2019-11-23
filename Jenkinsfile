@@ -1,3 +1,4 @@
+#!/usr/bin/env
 // Declarative //
 pipeline {
   agent any
