@@ -5,7 +5,7 @@ pipeline {
     stages {
         stage('build') {
             steps {
-                echo "Running java ${env.JAVA_HOME} on ${env.JENKINS_URL}"
+                echo "Running java ${env.JAVA_HOME} on path ${env.PATH}"
 
                 sh 'mvn -B -DskipTests clean package'
              }
