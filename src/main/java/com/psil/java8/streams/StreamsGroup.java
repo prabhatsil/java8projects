@@ -28,7 +28,7 @@ public class StreamsGroup {
         groupDistinctCalorieTypeByDish(menu);
         partitionByDish(menu);
         partitionByAndMaxBy(menu);
-        patitionPrime(20);
+        partitionPrime(20);
     }
 
 
@@ -125,7 +125,7 @@ public class StreamsGroup {
        return IntStream.range(2, candidate).noneMatch( i -> candidate % i ==0);
     }
 
-    public static void patitionPrime(int n){
+    public static void partitionPrime(int n){
         Map<Boolean, List<Integer>> primeMap =  IntStream.rangeClosed(2, n).boxed().collect(
                 Collectors.partitioningBy( i -> isPrime(i))
         );
