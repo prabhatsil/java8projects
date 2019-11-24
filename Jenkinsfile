@@ -7,13 +7,20 @@ pipeline {
 
         stage('build') {
             environment {
-                            mvnHome = tool name: 'Maven3', type: 'maven'
-                        }
+                    mvnHome = tool name: 'Maven3', type: 'maven'
+            }
             steps {
-                    //echo "Running java ${env.JAVA_HOME} on path ${env.PATH}"
+
                     sh "${mvnHome}/bin/mvn -B -DskipTests clean package"
              }
         }
+        stage('deploy') {
+                    steps {
+                            echo "Run the jar"
+                            sh "java -jar ./target/java8-projects-1.0-SNAPSHOT.jar"
+                     }
+                }
+
   }
 }
 
